@@ -36,7 +36,6 @@ with open(budget_data, "r") as csvfile:
 
     #Average change
     avg_change = abs(sum(revenue_change) / len(revenue_change))
-
     #Max change
     max_change = max(revenue_change)
     #Min change
