@@ -6,14 +6,13 @@ budget_data = os.path.join("Resources", "budget_data.csv")
 with open(budget_data, "r") as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csv_reader)
-    #output_file = "budget_analysis.txt"
     output_file = os.path.join("analysis", "budget_analysis.txt")
 
     net_revenue = 0
     months_count = 0
     avg_change = 0
-    max_revenue_change = 0
-    min_revenue_change = 0
+    max_change = 0
+    min_change = 0
     revenue = []
     revenue_change = []
     date = []
@@ -39,9 +38,9 @@ with open(budget_data, "r") as csvfile:
     avg_change = abs(sum(revenue_change) / len(revenue_change))
 
     #Max change
-    max_revenue_change = max(revenue_change)
+    max_change = max(revenue_change)
     #Min change
-    min_revenue_change = min(revenue_change)
+    min_change = min(revenue_change)
     #Max change period
     max_change_month = str(date[revenue_change.index(max(revenue_change))])
     #Min Change period
@@ -50,7 +49,7 @@ with open(budget_data, "r") as csvfile:
     #Printing all outputs from above
     print("Final Analysis")
     print("------------------------------------------")
-    print(f"Total number of Months: {str(months_count)} \nTotal Revenue: ${str(net_revenue)} \nAverage Change: ${str(round(avg_change,2))} \nGreatest Increase:  {str(max_change_month)}  $ {str(max_revenue_change)} \nGreatest Decrease:  {str(min_change_month)}  ${str(min_revenue_change)}")
+    print(f"Total number of Months: {str(months_count)} \nTotal Revenue: ${str(net_revenue)} \nAverage Change: ${str(round(avg_change,2))} \nLargest Increase:  {str(max_change_month)}  $ {str(max_change)} \nLargest Decrease:  {str(min_change_month)}  ${str(min_change)}")
 # Print to output file
 with open(output_file, "w") as txt_file:
-    txt_file.write(f"\nFinal Analysis:\n------------------------------------------\nTotal number of Months: {str(months_count)} \nTotal Revenue: ${str(net_revenue)} \nAverage Change: ${str(round(avg_change,2))} \nGreatest Increase:  {str(max_change_month)}  $ {str(max_revenue_change)} \nGreatest Decrease:  {str(min_change_month)}  ${str(min_revenue_change)}\n")
+    txt_file.write(f"\nFinal Analysis:\n------------------------------------------\nTotal number of Months: {str(months_count)} \nTotal Revenue: ${str(net_revenue)} \nAverage Change: ${str(round(avg_change,2))} \nLargest Increase:  {str(max_change_month)}  $ {str(max_change)} \nLargest Decrease:  {str(min_change_month)}  ${str(min_change)}\n")
