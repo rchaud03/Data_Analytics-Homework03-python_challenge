@@ -1,0 +1,6 @@
+
+Election Results:
+------------------------------------------
+Total votes casted: 3,521,001.
+Candidates list ['Khan', 'Correy', 'Li', "O'Tooley"]
+------------------------------------------
